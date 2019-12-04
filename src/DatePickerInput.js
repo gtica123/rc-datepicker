@@ -220,23 +220,19 @@ export default class DatePickerInput extends React.Component {
   onChangeInput = (event) => {
     // const { target: { value: dateString } } = event;
     event.persist();
-    const dateString = event.target.value;
+    const dateString = event.target.value || '';
 
-    if (dateString || this.state.date) {
-      const parsedDate = this.parseInputDateString(dateString);
-      const date = parsedDate.isValid() ? parsedDate : this.state.date;
+    const parsedDate = this.parseInputDateString(dateString);
+    const date = parsedDate.isValid() ? parsedDate : this.state.date;
 
-      const jsDate = parsedDate.isValid() ? parsedDate.toDate() : INVALID;
-      const returnedDateString = jsDate ? this.formatReturnedDate(parsedDate) : INVALID;
+    const jsDate = parsedDate.isValid() ? parsedDate.toDate() : INVALID;
+    const returnedDateString = jsDate ? this.formatReturnedDate(parsedDate) : INVALID;
 
-      this.setState({
-        dateString,
-        date,
-        hasValue: parsedDate.isValid()
-      }, () => this.getValueLink().requestChange(jsDate, returnedDateString, event));
-    } else if (!dateString) {
-      this.setState({ dateString });
-    }
+    this.setState({
+      dateString,
+      date,
+      hasValue: parsedDate.isValid()
+    }, () => this.getValueLink().requestChange(jsDate, returnedDateString, event));
   }
 
   getLocals(props) {
