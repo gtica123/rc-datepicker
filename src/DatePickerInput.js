@@ -218,7 +218,9 @@ export default class DatePickerInput extends React.Component {
   }
 
   onChangeInput = (event) => {
-    const { target: { value: dateString } } = event;
+    // const { target: { value: dateString } } = event;
+    event.persist();
+    const dateString = event.target.value;
 
     if (dateString || this.state.date) {
       const parsedDate = this.parseInputDateString(dateString);
