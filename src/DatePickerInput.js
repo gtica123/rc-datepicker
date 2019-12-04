@@ -23,6 +23,7 @@ export const Props = {
   onShow: t.maybe(t.Function),
   onHide: t.maybe(t.Function),
   onClear: t.maybe(t.Function),
+  onBlur: t.maybe(t.Function),
   small: t.maybe(t.Boolean),
   defaultValue: t.maybe(Value),
   minDate: t.maybe(Value),
@@ -255,6 +256,7 @@ export default class DatePickerInput extends React.Component {
       className,
       disabled,
       position,
+      onBlur,
       style
     } = props;
     const { showing: active, hasValue, dateString: value, date } = this.state;
@@ -274,6 +276,7 @@ export default class DatePickerInput extends React.Component {
         onInputClick, onButtonClick, onInputClear,
         onInputChange: this.onChangeInput,
         onInputKeyUp: this.hideOnEnterKey,
+        onBlur,
         ...inputProps
       },
       datePickerProps: active && {

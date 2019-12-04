@@ -31,6 +31,7 @@ export interface DatePickerInputProps {
   onShow?: () => void,
   onHide?: () => void,
   onClear?: () => void,
+  onBlur?: (event: React.FocusEventHandler) => void;
   small?: boolean,
   defaultValue?: Value,
   minDate?: Value,
