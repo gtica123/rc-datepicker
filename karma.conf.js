@@ -13,21 +13,21 @@ module.exports = (config) => {
 
     browserNoActivityTimeout: 30000,
 
-    browsers: [ 'Chrome' ],
+    browsers: ['ChromeHeadless'],
 
     singleRun: true,
 
-    frameworks: [ 'mocha' ],
+    frameworks: ['mocha'],
 
     files: [
       'karma.js'
     ],
 
     preprocessors: {
-      'karma.js': [ 'webpack' ]
+      'karma.js': ['webpack']
     },
 
-    reporters: process.env.CONTINUOUS_INTEGRATION ? [ 'bamboo', 'coverage' ] : [ 'dots', 'coverage' ],
+    reporters: process.env.CONTINUOUS_INTEGRATION ? ['bamboo', 'coverage'] : ['dots', 'coverage'],
 
     bambooReporter: {
       filename: 'mocha.json'
@@ -73,7 +73,7 @@ module.exports = (config) => {
     },
 
     webpackMiddleware: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // please don't spam the console when running in karma!
     }
 
   });
