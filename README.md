@@ -1,5 +1,3 @@
-[![NPM](https://nodei.co/npm/rc-datepicker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/rc-datepicker/)
-
 ![](https://github.com/cloudsoh/rc-datepicker/workflows/Build%20and%20Publish/badge.svg)
 
 # React Datepicker
