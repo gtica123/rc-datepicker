@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/buildo/rc-datepicker.git"
+    "url": "https://github.com/cloudsoh/rc-datepicker.git"
   },
   "keywords": [
     "react",
@@ -41,9 +41,9 @@
   "author": "Francesco Cioria <francesco@buildo.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/buildo/rc-datepicker/issues"
+    "url": "https://github.com/cloudsoh/rc-datepicker/issues"
   },
-  "homepage": "https://github.com/buildo/rc-datepicker",
+  "homepage": "https://github.com/cloudsoh/rc-datepicker",
   "devDependencies": {
     "@types/react": "^15.6.15",
     "babel-cli": "^6.8.0",
