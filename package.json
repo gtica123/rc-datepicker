@@ -1,6 +1,6 @@
 {
   "name": "@cloudsoh/rc-datepicker",
-  "version": "6.0.1",
+  "version": "6.1.0",
   "description": "DatePicker and DatePickerInput to be used with React",
   "main": "index.js",
   "files": [
@@ -21,6 +21,7 @@
     "lint-style-fix": "scriptoni stylefmt ./**/*.scss",
     "prepublish": "npm run build",
     "preversion": "npm run lint && npm run build-examples",
+    "postversion": "git push && git push --tags",
     "build-examples": "npm run clean && webpack --config examples/webpack.config.build.babel.js --progress",
     "start": "webpack-dev-server --config examples/webpack.config.babel.js --progress --hot --inline",
     "clean": "rm -rf examples/build",

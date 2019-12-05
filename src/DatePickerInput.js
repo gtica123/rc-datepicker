@@ -255,6 +255,7 @@ export default class DatePickerInput extends React.Component {
       disabled,
       position,
       onBlur,
+      placeholder,
       style
     } = props;
     const { showing: active, hasValue, dateString: value, date } = this.state;
@@ -275,6 +276,7 @@ export default class DatePickerInput extends React.Component {
         onInputChange: this.onChangeInput,
         onInputKeyUp: this.hideOnEnterKey,
         onBlur,
+        placeholder,
         ...inputProps
       },
       datePickerProps: active && {
