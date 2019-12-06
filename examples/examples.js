@@ -13,7 +13,8 @@ class Example extends React.Component {
     datePickerInputDate: null,
     datePickerInputDate2: null,
     showInput: true,
-    disabled: false
+    disabled: false,
+    newDate: new Date()
   }
 
   toggleInput = () => this.setState({ showInput: !this.state.showInput })
@@ -33,18 +34,24 @@ class Example extends React.Component {
         <button onClick={this.toggleInput}>toggle DatePickerInput</button>
         <p>onChange(jsDate, dateString)</p>
         <p>dateString = "{this.state.datePickerInputDate}"</p>
+        <p>newDate = "{this.state.newDate.toString()}"</p>
         <button onClick={() => this.setState({ disabled: !this.state.disabled })}>toggle disable</button>
+        <button onClick={() => this.setState({ newDate: new Date('a') })}>Fuck</button>
         {this.state.showInput &&
           <div className='ui input'>
             <DatePickerInput
               disabled={this.state.disabled}
               displayFormat='DD/MM/YYYY'
               returnFormat='YYYY-MM-DD'
+              value={this.state.newDate}
               className='my-react-component'
-              onChange={(jsDate, dateString) => this.setState({ datePickerInputDate: dateString })}
+              onChange={(jsDate, dateString) => {
+                this.setState({ datePickerInputDate: dateString, newDate: jsDate });
+                console.log('asd');
+              }}
+              onBlur={(e) => console.log('asd', e)}
               onShow={this.log.bind(this, 'show')}
               onHide={this.log.bind(this, 'hide')}
-              showOnInputClick
               placeholder='placeholder'
               locale='de'
               onClear={this.onClear}
