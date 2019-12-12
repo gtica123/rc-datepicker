@@ -32,6 +32,7 @@ export const Props = {
   startMode: t.maybe(t.enums.of(['day', 'month', 'year'])),
   startDate: t.maybe(Value),
   fixedMode: t.maybe(t.Boolean),
+  cleaveOptions: t.maybe(t.Object),
   displayFormat: t.maybe(t.String),
   returnFormat: t.maybe(t.String),
   format: t.maybe(t.String),
@@ -65,6 +66,7 @@ export const Props = {
  * @param startMode - the start view of the datepicker
  * @param startDate - specify an initial "visible" date with no need to select a defaultValue
  * @param fixedMode - whether the user can use multiple views or not
+ * @param cleaveOptions - Cleavejs date options
  * @param displayFormat - MomentJS format used to display current date
  * @param returnFormat - MomentJS format used to format date before returing through "onChange"
  * @param format - MomentJS format used to format date before returing through "onChange"
@@ -257,7 +259,8 @@ export default class DatePickerInput extends React.Component {
       onBlur,
       placeholder,
       style,
-      displayFormat
+      displayFormat,
+      cleaveOptions
     } = props;
     const { showing: active, hasValue, dateString: value, date } = this.state;
 
@@ -279,6 +282,7 @@ export default class DatePickerInput extends React.Component {
         onBlur,
         placeholder,
         displayFormat,
+        cleaveOptions,
         ...inputProps
       },
       datePickerProps: active && {

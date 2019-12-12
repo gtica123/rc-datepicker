@@ -37,21 +37,9 @@ export default class Input extends React.Component {
       onInputChange,
       onInputClear,
       onInputKeyUp,
-      displayFormat,
+      cleaveOptions,
       ...inputProps
     } = props;
-
-    const datePatternRegex = /[mMyYdD]/;
-    const datePatternObject = [];
-    let delimiter;
-    displayFormat.split('').forEach((char) => {
-      if (datePatternRegex.test(char)) {
-        datePatternObject.push(char);
-      } else if (char !== ' ') {
-        delimiter = delimiter || char;
-      }
-    });
-    const datePattern = [...new Set(datePatternObject)];
 
     return {
       className: cx('react-datepicker-input', {
@@ -71,10 +59,9 @@ export default class Input extends React.Component {
         onChange: onInputChange,
         onClick: onInputClick,
         onKeyUp: onInputKeyUp,
-        delimiter,
-        datePattern,
         ...inputProps
-      }
+      },
+      cleaveOptions
     };
   }
 
@@ -94,14 +81,13 @@ export default class Input extends React.Component {
     );
   }
 
-  template({ className, inputButtonProps, clearButtonProps, inputProps, delimiter, datePattern }) {
+  template({ className, inputButtonProps, clearButtonProps, inputProps, cleaveOptions }) {
     return (
       <div className={className}>
         <Cleave
           options={{
             date: true,
-            delimiter,
-            datePattern
+            ...cleaveOptions
           }}
           {...inputProps}
         />
