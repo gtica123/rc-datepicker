@@ -37,10 +37,9 @@ export default class Input extends React.Component {
       onInputChange,
       onInputClear,
       onInputKeyUp,
+      displayFormat,
       ...inputProps
     } = props;
-
-    const { displayFormat } = inputProps;
 
     const datePatternRegex = /[mMyYdD]/;
     const datePatternObject = [];
