@@ -55,7 +55,7 @@ export interface DatePickerInputProps {
   onHide?: () => void;
   onClear?: () => void;
   onBlur?: (event: React.FocusEventHandler<HTMLInputElement>) => void;
-  cleaveOptions: CleaveOptions;
+  cleaveOptions?: CleaveOptions;
   small?: boolean;
   defaultValue?: Value;
   minDate?: Value;
