@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { props } from 'tcomb-react';
 import t from 'tcomb';
 import View from 'react-flexview';
+import Cleave from 'cleave.js/react';
 import skinnable from './utils/skinnable';
 import pure from './utils/pure';
 
@@ -39,6 +40,20 @@ export default class Input extends React.Component {
       ...inputProps
     } = props;
 
+    const { displayFormat } = inputProps;
+
+    const datePatternRegex = /[mMyYdD]/;
+    const datePatternObject = [];
+    let delimiter;
+    displayFormat.split('').forEach((char) => {
+      if (datePatternRegex.test(char)) {
+        datePatternObject.push(char);
+      } else if (char !== ' ') {
+        delimiter = delimiter || char;
+      }
+    });
+    const datePattern = [...new Set(datePatternObject)];
+
     return {
       className: cx('react-datepicker-input', {
         'is-open': active,
@@ -57,6 +72,8 @@ export default class Input extends React.Component {
         onChange: onInputChange,
         onClick: onInputClick,
         onKeyUp: onInputKeyUp,
+        delimiter,
+        datePattern,
         ...inputProps
       }
     };
@@ -78,10 +95,17 @@ export default class Input extends React.Component {
     );
   }
 
-  template({ className, inputButtonProps, clearButtonProps, inputProps }) {
+  template({ className, inputButtonProps, clearButtonProps, inputProps, delimiter, datePattern }) {
     return (
       <div className={className}>
-        <input {...inputProps} />
+        <Cleave
+          options={{
+            date: true,
+            delimiter,
+            datePattern
+          }}
+          {...inputProps}
+        />
         <View className='button-wrapper' vAlignContent='center'>
           {clearButtonProps && this.templateClearButton(clearButtonProps)}
           {inputButtonProps && this.templateInputButton(inputButtonProps)}

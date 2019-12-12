@@ -88,6 +88,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "cleave.js": "^1.5.3",
     "lodash": "^4.13.1",
     "moment": "2.18.1",
     "react-flexview": "^4.0.3",
