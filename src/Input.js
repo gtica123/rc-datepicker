@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { props } from 'tcomb-react';
 import t from 'tcomb';
 import View from 'react-flexview';
+import Cleave from 'cleave.js/react';
 import skinnable from './utils/skinnable';
 import pure from './utils/pure';
 
@@ -36,6 +37,7 @@ export default class Input extends React.Component {
       onInputChange,
       onInputClear,
       onInputKeyUp,
+      cleaveOptions,
       ...inputProps
     } = props;
 
@@ -58,7 +60,8 @@ export default class Input extends React.Component {
         onClick: onInputClick,
         onKeyUp: onInputKeyUp,
         ...inputProps
-      }
+      },
+      cleaveOptions
     };
   }
 
@@ -78,10 +81,16 @@ export default class Input extends React.Component {
     );
   }
 
-  template({ className, inputButtonProps, clearButtonProps, inputProps }) {
+  template({ className, inputButtonProps, clearButtonProps, inputProps, cleaveOptions }) {
     return (
       <div className={className}>
-        <input {...inputProps} />
+        <Cleave
+          options={{
+            date: true,
+            ...cleaveOptions
+          }}
+          {...inputProps}
+        />
         <View className='button-wrapper' vAlignContent='center'>
           {clearButtonProps && this.templateClearButton(clearButtonProps)}
           {inputButtonProps && this.templateInputButton(inputButtonProps)}

@@ -18,7 +18,7 @@ export default function format(Component) {
       }
     }
 
-    return 'L';
+    return 'DD/MM/YYYY';
   };
 
   Component.prototype.formatReturnedDate = function(date, props) {

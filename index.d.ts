@@ -7,6 +7,25 @@ export type Mode = {
   year: string;
 };
 
+// Cleave.js is not exporting its options defintion from its @types
+export interface CleaveOptions {
+  date?: boolean;
+  datePattern?: ReadonlyArray<string>;
+  blocks?: ReadonlyArray<number>;
+  copyDelimiter?: boolean;
+  delimiter?: string;
+  delimiters?: ReadonlyArray<string>;
+  delimiterLazyShow?: boolean;
+  initValue?: any;
+  lowercase?: boolean;
+  numericOnly?: boolean;
+  prefix?: string;
+  noImmediatePrefix?: boolean;
+  rawValueTrimPrefix?: boolean;
+  uppercase?: boolean;
+  onValueChanged?(event: any): void;
+}
+
 export type Position = "top" | "bottom";
 
 export type Value = string | Date | moment.Moment; // | MomentDate
@@ -36,6 +55,7 @@ export interface DatePickerInputProps {
   onHide?: () => void;
   onClear?: () => void;
   onBlur?: (event: React.FocusEventHandler<HTMLInputElement>) => void;
+  cleaveOptions?: CleaveOptions;
   small?: boolean;
   defaultValue?: Value;
   minDate?: Value;
