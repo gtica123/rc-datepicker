@@ -23,14 +23,26 @@ export default {
   },
 
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['babel'],
-      include: [paths.SRC]
-    }, {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
-    }]
+    loaders: [
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        name: '[name].[ext]',
+        outputPath: 'fonts/',
+        query: {
+          esModule: false,
+          name: '[name].[ext]',
+          outputPath: 'fonts/'
+        }
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: [paths.SRC]
+      }, {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
+      }]
   },
 
   plugins: [
