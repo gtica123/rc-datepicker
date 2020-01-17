@@ -31,6 +31,17 @@ export default {
   module: {
     loaders: [
       {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        name: '[name].[ext]',
+        outputPath: 'fonts/',
+        query: {
+          esModule: false,
+          name: '[name].[ext]',
+          outputPath: 'fonts/'
+        }
+      },
+      {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: [paths.SRC, paths.EXAMPLES]
