@@ -1,6 +1,6 @@
 {
   "name": "@cloudsoh/rc-datepicker",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "DatePicker and DatePickerInput to be used with React",
   "main": "index.js",
   "files": [
