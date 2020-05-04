@@ -65,7 +65,7 @@ export default class DayPickerBody extends React.Component {
     );
 
     return (
-      <View column className='react-datepicker-body'>
+      <View className='react-datepicker-body' wrap>
         {rows}
       </View>
     );
