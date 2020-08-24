@@ -1,5 +1,5 @@
 import React from 'react';
-import range from 'lodash/range';
+import range from 'lodash.range';
 import t from 'tcomb';
 import { props } from 'tcomb-react';
 import View from 'react-flexview';

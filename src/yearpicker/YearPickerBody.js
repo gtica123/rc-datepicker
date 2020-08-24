@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import t from 'tcomb';
 import { props } from 'tcomb-react';
-import range from 'lodash/range';
+import range from 'lodash.range';
 import { pure, skinnable } from '../utils';
 import { Value, Mode, MomentDate } from '../utils/model';
 import { isInsideTheEnabledArea, getVisibleYears } from '../utils/DateUtils';

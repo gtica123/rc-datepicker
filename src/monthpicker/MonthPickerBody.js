@@ -8,7 +8,7 @@ import InvalidDate from '../InvalidDate';
 import Picker from '../Picker';
 import Row from '../Row';
 import { isInsideTheEnabledArea } from '../utils/DateUtils';
-import range from 'lodash/range';
+import range from 'lodash.range';
 
 const COLUMNS = 4;
 const ROWS = 3;

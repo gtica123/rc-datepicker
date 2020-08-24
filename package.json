@@ -90,7 +90,9 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "cleave.js": "^1.5.3",
-    "lodash": "^4.17.20",
+    "lodash.capitalize": "^4.2.1",
+    "lodash.omit": "^4.5.0",
+    "lodash.range": "^3.2.0",
     "moment": "^2.24.0",
     "react-flexview": "^4.0.3",
     "revenge": "^0.4.4",

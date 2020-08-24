@@ -1,5 +1,5 @@
 import React from 'react';
-import capitalize from 'lodash/capitalize';
+import capitalize from 'lodash.capitalize';
 import t from 'tcomb';
 import { props } from 'tcomb-react';
 import View from 'react-flexview';

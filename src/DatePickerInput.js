@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import t from 'tcomb';
 import { props } from 'tcomb-react';
-import omit from 'lodash/omit';
+import omit from 'lodash.omit';
 import DatePicker from './DatePicker';
 import { Value } from './utils/model';
 import { format, valueLink, skinnable } from './utils';
