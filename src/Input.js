@@ -68,7 +68,8 @@ export default class Input extends React.Component {
   templateInputButton({ className, onButtonClick, iconClassName }) {
     return (
       <View shrink={false} className={className} onClick={onButtonClick}>
-        <i className={iconClassName} />
+        {/* <i className={iconClassName} /> */}
+        <p>Scratt</p>
       </View>
     );
   }
